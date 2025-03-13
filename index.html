@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>物价与消费观念</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.7;
+            color: #1a202c;
+            background-color: #f9fafb;
+        }
+        
+        .prose {
+            max-width: 65ch;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .collapsible-content.expanded {
+            max-height: 2000px;
+        }
+        
+        .highlight {
+            background: linear-gradient(180deg, rgba(255,255,255,0) 50%, rgba(66, 153, 225, 0.2) 50%);
+            padding: 0 0.2em;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 0.15rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background-color: #ebf4ff;
+            color: #3182ce;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white border-b border-gray-200">
+        <div class="container mx-auto px-4 py-6 max-w-4xl">
+            <h1 class="text-3xl font-bold text-gray-900">物价与消费观念</h1>
+            <p class="text-gray-600 mt-2">对于物价、消费升级与内卷经济的思考</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+        <div class="flex flex-col gap-8">
+            
+            <!-- 目录 -->
+            <div class="card p-5">
+                <h2 class="text-xl font-semibold mb-4">目录</h2>
+                <ul class="space-y-2 text-gray-700">
+                    <li>
+                        <a href="#section-1" class="hover:text-blue-600 transition-colors">
+                            1. 香港物价与收入的关系
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section-2" class="hover:text-blue-600 transition-colors">
+                            2. 中国制造与产品定位
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section-3" class="hover:text-blue-600 transition-colors">
+                            3. 无锡观察与文创品市场
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section-4" class="hover:text-blue-600 transition-colors">
+                            4. 低价平替与内卷竞争
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section-5" class="hover:text-blue-600 transition-colors">
+                            5. 连锁品牌与小而美商业
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section-6" class="hover:text-blue-600 transition-colors">
+                            6. 胖东来案例分析
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section-7" class="hover:text-blue-600 transition-colors">
+                            7. 美好生活与消费理念
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section-8" class="hover:text-blue-600 transition-colors">
+                            8. 消费升级与降级的思考
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 第一部分 -->
+            <section id="section-1" class="card p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-2xl font-bold text-gray-900">香港物价与收入的关系</h2>
+                    <div class="tag">物价观念</div>
+                </div>
+                <div class="prose text-gray-700">
+                    <p>众所周知，香港物价几乎冠绝全球。但只说物价高太笼统，对比内地，香港基础生活物资贵，但是电子产品、奢侈品等反而便宜。</p>
+                    
+                    <p class="mt-4">作为游客，希望目的地物价低可以理解。但生活中，甚至有不少人认为物价越低越好，其实他们假设收入不变，只有物价降低。但是，<span class="highlight">收入和物价即使不是一体两面，至少也是紧密相关，物价低的地方收入几乎肯定低。</span></p>
+                    
+                    <p class="mt-4">香港物价高，收入也高，要看实际购买力如何。从按照购买力平价调整的人均GDP看，香港在世界经济体中排名十几，大幅领先内地。从这个意义上，内地人应该认为香港的收入比物价高得更夸张，只不过作为游客感受不到收入，对物价更敏感而已。</p>
+                    
+                    <p class="mt-4">在香港拿赚钱的人去全世界绝大部分地方，都是"降维打击"，比如香港赚钱内地花。况且，作为多元的自由港，香港也吸引着世界旅行者并鼓励人们走向世界。</p>
+                    
+                    <p class="mt-4">世界上最发达的经济体，都是高物价的，高物价在本质上反应了这些经济体在世界范围内的综合吸引力和稀缺性，包括人才、产业、文化、制度等方方面面。</p>
+                </div>
+
+                <div class="mt-6">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <svg class="w-full h-60" viewBox="0 0 600 200">
+                            <text x="300" y="30" text-anchor="middle" font-weight="bold" font-size="16">物价与购买力关系示意</text>
+                            
+                            <!-- 坐标轴 -->
+                            <line x1="50" y1="150" x2="550" y2="150" stroke="#333" stroke-width="2"></line>
+                            <line x1="50" y1="150" x2="50" y2="50" stroke="#333" stroke-width="2"></line>
+                            
+                            <!-- 标签 -->
+                            <text x="300" y="180" text-anchor="middle" font-size="14">物价水平</text>
+                            <text x="20" y="100" text-anchor="middle" font-size="14" transform="rotate(-90, 20, 100)">收入水平</text>
+                            
+                            <!-- 曲线 -->
+                            <path d="M 50,150 Q 300,50 550,90" fill="none" stroke="#3182ce" stroke-width="3"></path>
+                            
+                            <!-- 点位标记 -->
+                            <circle cx="450" cy="100" r="8" fill="#e53e3e"></circle>
+                            <text x="450" y="85" text-anchor="middle" font-size="12">香港</text>
+                            
+                            <circle cx="180" cy="130" r="8" fill="#38a169"></circle>
+                            <text x="180" y="115" text-anchor="middle" font-size="12">内地</text>
+                            
+                            <circle cx="330" cy="110" r="8" fill="#d69e2e"></circle>
+                            <text x="330" y="95" text-anchor="middle" font-size="12">发达国家</text>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 第二部分 -->
+            <section id="section-2" class="card p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-2xl font-bold text-gray-900">中国制造与产品定位</h2>
+                    <div class="tag">产业发展</div>
+                </div>
+                <div class="prose text-gray-700">
+                    <p>从很多前开始，中国制造席卷全球，体现了强大的生产能力。产品质量稳步提升，产品类型也从劳动密集型（纺织品、家具等）向资本和技术密集型（电子产品、汽车等）转移，但总体上在世界范围内保持相对低价。</p>
+                    
+                    <p class="mt-4">换个角度看，是因为主打中低端市场，并且在中低端市场也常有价格优势。</p>
+                </div>
+                <div class="mt-6">
+                    <canvas id="productChart" width="400" height="200"></canvas>
+                </div>
+            </section>
+            
+            <!-- 第三部分 -->
+            <section id="section-3" class="card p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-2xl font-bold text-gray-900">无锡观察与文创品市场</h2>
+                    <div class="tag">市场观察</div>
+                </div>
+                <div class="prose text-gray-700">
+                    <p>7年前，我曾到访江阴市（无锡市代管），这个全国顶富裕的县让我印象深刻。2025年，再次到访蛇年春晚分会场的无锡，各大景区都在全力以赴，承接住这波流量。南长街，人头攒动。</p>
+                    
+                    <p class="mt-4">蓝色的"俄罗斯主题馆"，却很冷清，这不是重点，但我很欣慰（最近很多被查了，假货）。还有卖品牌的、做工精良、创意不错同时溢价高的文创品店；也有量贩式、做工过得去但价格非常低的"文创品"店。后者要热闹得多。</p>
+                    
+                    <p class="mt-4">文创品，因为承载了很多情绪价值，很大程度上是消费升级的产物，因此是溢价较高的品类。后者的量贩式"文创品"，是典型的低价平替。当然，我们都知道"平替"不是"完替"，因为品牌、创意和细节有区别。</p>
+                    
+                    <p class="mt-4">但是，存在大量消费者并不会因为品牌、细节提升和看不到的"独创性"为高溢价买单。对于"低价平替"的需求不仅存在，甚至非常旺盛，经济增长放缓时尤其显著，这很好理解。</p>
+                </div>
+                
+                <!-- 添加文创品市场SVG可视化 -->
+                <div class="mt-6">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <svg class="w-full h-72" viewBox="0 0 600 280">
+                            <text x="300" y="30" text-anchor="middle" font-weight="bold" font-size="16">文创品市场两极化现象</text>
+                            
+                            <!-- 左侧：高端文创品 -->
+                            <rect x="80" y="60" width="200" height="180" rx="8" fill="#ebf8ff" stroke="#3182ce" stroke-width="2"></rect>
+                            <text x="180" y="80" text-anchor="middle" font-weight="bold" font-size="14">高端文创品</text>
+                            
+                            <!-- 高端文创品特点列表 -->
+                            <circle cx="100" cy="110" r="4" fill="#3182ce"></circle>
+                            <text x="115" y="115" font-size="12">品牌溢价高</text>
+                            
+                            <circle cx="100" cy="140" r="4" fill="#3182ce"></circle>
+                            <text x="115" y="145" font-size="12">做工精良</text>
+                            
+                            <circle cx="100" cy="170" r="4" fill="#3182ce"></circle>
+                            <text x="115" y="175" font-size="12">设计原创性强</text>
+                            
+                            <circle cx="100" cy="200" r="4" fill="#3182ce"></circle>
+                            <text x="115" y="205" font-size="12">目标消费群体小众</text>
+                            
+                            <circle cx="100" cy="230" r="4" fill="#3182ce"></circle>
+                            <text x="115" y="235" font-size="12">文化价值感强</text>
+                            
+                            <!-- 高端文创品购物人群示意 -->
+                            <circle cx="240" cy="140" r="30" fill="rgba(56, 161, 105, 0.2)" stroke="#38a169" stroke-width="2"></circle>
+                            <text x="240" y="145" text-anchor="middle" font-size="12">较少客流</text>
+                            
+                            <!-- 右侧：低价平替文创品 -->
+                            <rect x="320" y="60" width="200" height="180" rx="8" fill="#fff5f5" stroke="#e53e3e" stroke-width="2"></rect>
+                            <text x="420" y="80" text-anchor="middle" font-weight="bold" font-size="14">低价平替文创品</text>
+                            
+                            <!-- 低价平替文创品特点列表 -->
+                            <circle cx="340" cy="110" r="4" fill="#e53e3e"></circle>
+                            <text x="355" y="115" font-size="12">价格极具竞争力</text>
+                            
+                            <circle cx="340" cy="140" r="4" fill="#e53e3e"></circle>
+                            <text x="355" y="145" font-size="12">做工基本过关</text>
+                            
+                            <circle cx="340" cy="170" r="4" fill="#e53e3e"></circle>
+                            <text x="355" y="175" font-size="12">模仿性强/同质化</text>
+                            
+                            <circle cx="340" cy="200" r="4" fill="#e53e3e"></circle>
+                            <text x="355" y="205" font-size="12">大众消费市场</text>
+                            
+                            <circle cx="340" cy="230" r="4" fill="#e53e3e"></circle>
+                            <text x="355" y="235" font-size="12">注重实用功能</text>
+                            
+                            <!-- 低价平替购物人群示意 -->
+                            <circle cx="480" cy="140" r="50" fill="rgba(229, 62, 62, 0.2)" stroke="#e53e3e" stroke-width="2"></circle>
+                            <text x="480" y="145" text-anchor="middle" font-size="12">大量客流</text>
+                            
+                            <!-- 市场分割线 -->
+                            <line x1="300" y1="50" x2="300" y2="250" stroke="#718096" stroke-width="1" stroke-dasharray="5,5"></line>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 第四部分 -->
+            <section id="section-4" class="card p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-2xl font-bold text-gray-900">低价平替与内卷竞争</h2>
+                    <div class="tag">经济现象</div>
+                </div>
+                <div class="prose text-gray-700">
+                    <p>很多消费者一转身，又是各自行当里"低价平替"的生产者，低价平替的市场壁垒地、竞争充分，身为其中普通劳动者的他们收入也相对低，自然也偏好购买低价平替。以上是"内卷式竞争"的一个侧面——创新稀缺且没有得到有效保护，产能强劲，存在大量"低价平替"的低收入生产者，一转身，他们也是消费者。</p>
+                    
+                    <p class="mt-4">低价平替市场有"平替驱良币"的问题，内卷式竞争有保持均衡稳定的本能。市场，或者说经济，是供给和需求双方均衡的结果。但是打破旧均衡，迈向新均衡，总有一方需要发力更多。</p>
+                    
+                    <p class="mt-4">因此，分别有供给侧发力和需求侧发力的不同观点。现阶段主要矛盾是"人民日益增长的美好生活需要和不平衡不充分的发展之间的矛盾"，看起来有一定引导性，似乎是供给侧需要发力更多。老百姓的美好生活需要，核心是衣食住行，这没什么神奇的，即使是"卡脖子"技术，也卡不到老百姓美好生活的脖子。</p>
+                    
+                    <p class="mt-4">前几天，拜读了徐高老师2万字文《中国经济的逻辑与出路》，徐高老师从"中国经济发展的源泉是什么"的根本问题出发，逻辑严密地阐述得到结论：<span class="highlight">我国经济发展的主要障碍在有效需求不足，而非生产能力不足。</span>有效需求不足归根结底是收入分配问题，有购买力的经济主体缺乏支出欲望，有支出欲望的经济主体缺乏购买力。</p>
+                </div>
+                <div class="mt-6">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <svg class="w-full h-80" viewBox="0 0 800 400">
+                            <defs>
+                                <!-- 渐变定义 -->
+                                <linearGradient id="cycleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#4299e1" />
+                                    <stop offset="100%" stop-color="#3182ce" />
+                                </linearGradient>
+                                <!-- 箭头定义 -->
+                                <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                                refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7" fill="#3182ce" />
+                                </marker>
+                            </defs>
+                            
+                            <text x="400" y="30" text-anchor="middle" font-weight="bold" font-size="20">内卷竞争与低价平替循环生态</text>
+                            
+                            <!-- 中心大圆：内卷循环 -->
+                            <circle cx="400" cy="200" r="150" fill="none" stroke="url(#cycleGradient)" stroke-width="3" stroke-dasharray="5,3" />
+                            
+                            <!-- 内卷循环四个关键节点 -->
+                            <!-- 1. 低收入生产者 -->
+                            <circle cx="400" cy="350" r="50" fill="#ebf8ff" stroke="#3182ce" stroke-width="2" />
+                            <text x="400" y="340" text-anchor="middle" font-weight="bold" font-size="16">低收入生产者</text>
+                            <text x="400" y="360" text-anchor="middle" font-size="12">为维持生计</text>
+                            <text x="400" y="375" text-anchor="middle" font-size="12">竞争充分/利润薄</text>
+                            
+                            <!-- 2. 低价平替产品 -->
+                            <circle cx="250" cy="200" r="50" fill="#e6fffa" stroke="#38b2ac" stroke-width="2" />
+                            <text x="250" y="190" text-anchor="middle" font-weight="bold" font-size="16">低价平替产品</text>
+                            <text x="250" y="210" text-anchor="middle" font-size="12">同质化严重</text>
+                            <text x="250" y="225" text-anchor="middle" font-size="12">低溢价/低创新</text>
+                            
+                            <!-- 3. 低价消费者 -->
+                            <circle cx="400" cy="50" r="50" fill="#fff5f5" stroke="#fc8181" stroke-width="2" />
+                            <text x="400" y="40" text-anchor="middle" font-weight="bold" font-size="16">低价消费者</text>
+                            <text x="400" y="60" text-anchor="middle" font-size="12">价格敏感</text>
+                            <text x="400" y="75" text-anchor="middle" font-size="12">追求性价比</text>
+                            
+                            <!-- 4. 内卷竞争 -->
+                            <circle cx="550" cy="200" r="50" fill="#faf5ff" stroke="#9f7aea" stroke-width="2" />
+                            <text x="550" y="190" text-anchor="middle" font-weight="bold" font-size="16">内卷式竞争</text>
+                            <text x="550" y="210" text-anchor="middle" font-size="12">价格战/增量少</text>
+                            <text x="550" y="225" text-anchor="middle" font-size="12">红海市场</text>
+                            
+                            <!-- 连接箭头 - 顺时针方向流转 -->
+                            <!-- 1 -> 2 -->
+                            <path d="M 360,315 Q 300,290 290,250" fill="none" stroke="#3182ce" stroke-width="2" marker-end="url(#arrowhead)" />
+                            <text x="300" y="295" text-anchor="middle" font-size="12" fill="#3182ce">提供</text>
+                            
+                            <!-- 2 -> 3 -->
+                            <path d="M 290,170 Q 320,100 350,80" fill="none" stroke="#38b2ac" stroke-width="2" marker-end="url(#arrowhead)" />
+                            <text x="300" y="120" text-anchor="middle" font-size="12" fill="#38b2ac">满足</text>
+                            
+                            <!-- 3 -> 4 -->
+                            <path d="M 450,70 Q 520,100 530,150" fill="none" stroke="#fc8181" stroke-width="2" marker-end="url(#arrowhead)" />
+                            <text x="500" y="100" text-anchor="middle" font-size="12" fill="#fc8181">催生</text>
+                            
+                            <!-- 4 -> 1 -->
+                            <path d="M 520,240 Q 480,300 450,315" fill="none" stroke="#9f7aea" stroke-width="2" marker-end="url(#arrowhead)" />
+                            <text x="500" y="290" text-anchor="middle" font-size="12" fill="#9f7aea">形成</text>
+                            
+                            <!-- 内卷突破的可能路径 -->
+                            <path d="M 400,200 L 650,80" fill="none" stroke="#ed8936" stroke-width="3" stroke-dasharray="10,5" />
+                            <polygon points="650,80 640,85 645,75" fill="#ed8936" />
+                            
+                            <circle cx="650" cy="80" r="40" fill="#fffaf0" stroke="#ed8936" stroke-width="2" />
+                            <text x="650" y="75" text-anchor="middle" font-weight="bold" font-size="14">突破内卷</text>
+                            <text x="650" y="95" text-anchor="middle" font-size="12">高质量发展</text>
+                            
+                            <!-- 侧面的解释框 - 需求侧 -->
+                            <rect x="630" y="160" width="150" height="95" rx="5" fill="#fefcbf" stroke="#d69e2e" stroke-width="1" />
+                            <text x="705" y="180" text-anchor="middle" font-weight="bold" font-size="14">需求侧发力</text>
+                            <line x1="650" y1="190" x2="760" y2="190" stroke="#d69e2e" stroke-width="1" />
+                            <text x="640" y="210" font-size="12" text-anchor="start">• 提高居民收入</text>
+                            <text x="640" y="230" font-size="12" text-anchor="start">• 优化收入分配</text>
+                            <text x="640" y="250" font-size="12" text-anchor="start">• 激发消费潜力</text>
+                            
+                            <!-- 侧面的解释框 - 供给侧 -->
+                            <rect x="20" y="160" width="150" height="95" rx="5" fill="#e9d8fd" stroke="#805ad5" stroke-width="1" />
+                            <text x="95" y="180" text-anchor="middle" font-weight="bold" font-size="14">供给侧发力</text>
+                            <line x1="40" y1="190" x2="150" y2="190" stroke="#805ad5" stroke-width="1" />
+                            <text x="30" y="210" font-size="12" text-anchor="start">• 技术创新</text>
+                            <text x="30" y="230" font-size="12" text-anchor="start">• 产业升级</text>
+                            <text x="30" y="250" font-size="12" text-anchor="start">• 提升产品质量</text>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 第五部分 -->
+            <section id="section-5" class="card p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-2xl font-bold text-gray-900">连锁品牌与小而美商业</h2>
+                    <div class="tag">商业格局</div>
+                </div>
+                <div class="prose text-gray-700">
+                    <p>说回香港，就算巅峰已逝，当前的商业，依然百花齐放，有海量"小而美"的餐饮、零售等商铺，大型连锁品牌相对内地少很多（有我认不出来的）。这当然和香港的地理环境等各种因素有关，但未必是决定性因素，在其他发达地区也有类似场景。</p>
+                    
+                    <p class="mt-4">反观内地，全国各地商业同质化严重，几乎被各种连锁品牌占据，大差不差的夜市和小吃街，也都卖着90%一样的东西。但香港不也是很多茶餐厅、冰室吗？似乎也是同质的。实际上，他们除了类型相同，装修、布置、菜单、风格甚至气质都是不一样的，实际的替代性很低。</p>
+                    
+                    <p class="mt-4">在内地，连锁品牌出品稳定自不必说，各地夜市摊位和售卖的臭豆腐、铁板鱿鱼和章鱼小丸子，在感官体验上没有什么区别，老板们的口音除外。还有那些大量家庭小店、个体户，他们存在的最主要的目的，甚至全部意义，是维持生计，既维持老板自己的生计，也维持客人们的生计，这种情况下大概率是普通且平价，很难小而美。所以，在大型连锁品牌之外，存在大量同质化、竞争充分的店铺、工厂等商业主体，老板们只能赚个辛苦钱。</p>
+                    
+                    <p class="mt-4">现在假设，社区开了一家小而美的咖啡店，也很难抵挡连锁品牌9块9的冲击波，因为大部分人可能对差别不敏感，甚至感受不到差异，所以按照自己的消费能力，不愿意支付溢价。甚至，连锁品牌因为存在规模经济优势，用的咖啡豆更好还更便宜，环境虽然没啥特色但也干净舒适。</p>
+                    
+                    <p class="mt-4">久而久之，连锁品牌大行其道，同质化主体深刻内卷，小而美夹缝难生。这些连锁品牌凭借对内地市场和经济环境的深刻洞察，依靠资本，在"全国统一大市场"中摧城拔寨，让自己变得随处可见。而这些连锁品牌的打工人，因为缺乏稀缺性，自然只能赚取"平替"的收入，进而再去消费"低价平替"。</p>
+                </div>
+                <div class="mt-6">
+                    <canvas id="businessChart" width="400" height="200"></canvas>
+                </div>
+            </section>
+            
+            <!-- 第六部分 -->
+            <section id="section-6" class="card p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-2xl font-bold text-gray-900">胖东来案例分析</h2>
+                    <div class="tag">商业案例</div>
+                </div>
+                <div class="prose text-gray-700">
+                    <p>胖东来，之前因为成本上涨，部分商品涨价。比如，由于高品质原料成本本来就高，部分烘焙品的新价格让人望而却步。即便如此，胖东来的原则是不赚暴利，这和超市的本质有关。既然本来也赚不了暴利，不如当成原则讲出来。</p>
+                    
+                    <p class="mt-4">普通超商品同质性高，难有高利润率，只能拼服务拼体验，获得更大流量和周转。很多超市开始建设自有品牌，就是为了提升品控，创造差异性，获得更高利润率。虽然胖东来自有品牌强大，但不赚暴利，依靠其理念和创造出的体验，薄利多销，同样赚很多。</p>
+                    
+                    <p class="mt-4">与很多连锁品牌不同，胖东来将更多利润分给员工，以及提高员工工作体验，比如配备各种高档电器，帮助员工实现美好生活。显然，收入更高，有更好生命体验的胖东来员工，会以各种方式，将美好传递给消费者、家人和其他商业主体。</p>
+                    
+                    <p class="mt-4"><span class="highlight">胖东来之所以火爆，是对它突围"低价平替"内卷的市场环境的奖励，本质是人民对美好生活的向往。</span></p>
+                    
+                    <p class="mt-4">有趣的是，于东来只是想做一个"小而美"的企业，低调地享受美好生活。但是，即使不是追求更大市场和利益，也会有各种力量推动你走到前台，包括做大做强。在推动的过程中，这些力量有利可图。不只胖东来，或许很多连锁品牌原本也只想保持小而美。</p>
+                </div>
+                
+                <!-- 添加胖东来商业模式SVG可视化 -->
+                <div class="mt-6">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <svg class="w-full h-80" viewBox="0 0 600 320">
+                            <text x="300" y="30" text-anchor="middle" font-weight="bold" font-size="16">胖东来商业模式价值循环</text>
+                            
+                            <!-- 中心圆：胖东来 -->
+                            <circle cx="300" cy="160" r="60" fill="#ebf8ff" stroke="#3182ce" stroke-width="3"></circle>
+                            <text x="300" y="150" text-anchor="middle" font-weight="bold" font-size="16">胖东来</text>
+                            <text x="300" y="170" text-anchor="middle" font-size="12">薄利多销</text>
+                            <text x="300" y="185" text-anchor="middle" font-size="12">重视员工体验</text>
+                            
+                            <!-- 底层价值理念 -->
+                            <rect x="210" y="240" width="180" height="40" rx="20" fill="#fefcbf" stroke="#d69e2e" stroke-width="2"></rect>
+                            <text x="300" y="265" text-anchor="middle" font-weight="bold" font-size="14">不赚暴利的企业理念</text>
+                            
+                            <!-- 从理念到中心的连线 -->
+                            <line x1="300" y1="240" x2="300" y2="220" stroke="#d69e2e" stroke-width="2" stroke-dasharray="5,3"></line>
+                            <polygon points="300,220 295,228 305,228" fill="#d69e2e"></polygon>
+                            
+                            <!-- 顶层价值：美好生活 -->
+                            <rect x="210" y="40" width="180" height="40" rx="20" fill="#e9d8fd" stroke="#805ad5" stroke-width="2"></rect>
+                            <text x="300" y="65" text-anchor="middle" font-weight="bold" font-size="14">创造与传递美好生活</text>
+                            
+                            <!-- 从中心到顶层的连线 -->
+                            <line x1="300" y1="100" x2="300" y2="80" stroke="#805ad5" stroke-width="2" stroke-dasharray="5,3"></line>
+                            <polygon points="300,80 295,88 305,88" fill="#805ad5"></polygon>
+                            
+                            <!-- 左侧：员工 -->
+                            <rect x="40" y="140" width="100" height="40" rx="20" fill="#c6f6d5" stroke="#38a169" stroke-width="2"></rect>
+                            <text x="90" y="165" text-anchor="middle" font-weight="bold" font-size="14">高满意度员工</text>
+                            
+                            <!-- 从中心到员工的连线 -->
+                            <path d="M 240,160 C 210,160 170,160 140,160" fill="none" stroke="#38a169" stroke-width="2"></path>
+                            <polygon points="140,160 148,155 148,165" fill="#38a169"></polygon>
+                            
+                            <!-- 从员工到中心的回馈连线 -->
+                            <path d="M 140,140 C 170,120 210,110 240,130" fill="none" stroke="#38a169" stroke-width="2" stroke-dasharray="5,3"></path>
+                            <polygon points="240,130 232,125 234,135" fill="#38a169"></polygon>
+                            <text x="190" y="115" text-anchor="middle" font-size="12" fill="#38a169">更好的服务</text>
+                            
+                            <!-- 右侧：消费者 -->
+                            <rect x="460" y="140" width="100" height="40" rx="20" fill="#fed7d7" stroke="#e53e3e" stroke-width="2"></rect>
+                            <text x="510" y="165" text-anchor="middle" font-weight="bold" font-size="14">忠诚消费者</text>
+                            
+                            <!-- 从中心到消费者的连线 -->
+                            <path d="M 360,160 C 390,160 430,160 460,160" fill="none" stroke="#e53e3e" stroke-width="2"></path>
+                            <polygon points="460,160 452,155 452,165" fill="#e53e3e"></polygon>
+                            
+                            <!-- 从消费者到中心的回馈连线 -->
+                            <path d="M 460,140 C 430,120 390,110 360,130" fill="none" stroke="#e53e3e" stroke-width="2" stroke-dasharray="5,3"></path>
+                            <polygon points="360,130 368,125 366,135" fill="#e53e3e"></polygon>
+                            <text x="410" y="115" text-anchor="middle" font-size="12" fill="#e53e3e">口碑营销</text>
+                            
+                            <!-- 标注突破内卷的箭头 -->
+                            <path d="M 300,290 C 400,290 450,240 480,190" fill="none" stroke="#2c5282" stroke-width="2" stroke-dasharray="5,3"></path>
+                            <polygon points="480,190 471,194 477,184" fill="#2c5282"></polygon>
+                            <text x="390" y="310" text-anchor="middle" font-weight="bold" font-size="14" fill="#2c5282">突破"低价平替"内卷</text>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 第七部分 -->
+            <section id="section-7" class="card p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-2xl font-bold text-gray-900">美好生活与消费理念</h2>
+                    <div class="tag">价值观念</div>
+                </div>
+                <div class="prose text-gray-700">
+                    <p>于东来说，不会享受怎么创造美好？</p>
+                    
+                    <p class="mt-4">当然，每个人对"美"和"美好"的定义可以不同。当然，这世间最美好的东西，比如爱情、亲情、友情和大自然都是免费的。但是必须承认，市场经济中，构成美好生活核心的衣食住行，都是有价格的。那些凝结了人类智慧、汗水的物质商品和服务体验，是人类精神、意志的外化，是需要钱的。</p>
+                    
+                    <p class="mt-4">钱的本质是什么？是一般等价物，是价值交换的媒介。本质，是用我们为他人创造的价值，交换他人为我们创造的价值，在一次次交换中，你我他共同创造了美好生活。这几乎是常识。</p>
+                    
+                    <p class="mt-4">当看到过、体验过、享受过美好，感官的颗粒度会变细，审美会提升，精神上产生触动和愉悦感。这些看到过、体验过、享受过美好的人，有动机去保持和提升生活的美好度。当然，这是要付钱的，甚至更多的钱。</p>
+                    
+                    <p class="mt-4">这种渴望将激励他们，用提升的感官、审美和精神去为别人的美好生活服务。这就是为什么，<span class="highlight">只有享受过美好，才能创造美好。</span></p>
+                </div>
+                <div class="mt-6">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <svg class="w-full h-90" viewBox="0 0 800 450">
+                            <defs>
+                                <!-- 渐变定义 -->
+                                <linearGradient id="beautifulLifeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#4299e1" />
+                                    <stop offset="50%" stop-color="#805ad5" />
+                                    <stop offset="100%" stop-color="#f56565" />
+                                </linearGradient>
+                                
+                                <!-- 上升路径渐变 -->
+                                <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#3182ce" />
+                                    <stop offset="50%" stop-color="#6b46c1" />
+                                    <stop offset="100%" stop-color="#e53e3e" />
+                                </linearGradient>
+                                
+                                <!-- 箭头定义 -->
+                                <marker id="arrowheadBlue" markerWidth="10" markerHeight="7" 
+                                refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7" fill="#3182ce" />
+                                </marker>
+                                
+                                <marker id="arrowheadPurple" markerWidth="10" markerHeight="7" 
+                                refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7" fill="#6b46c1" />
+                                </marker>
+                                
+                                <marker id="arrowheadRed" markerWidth="10" markerHeight="7" 
+                                refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7" fill="#e53e3e" />
+                                </marker>
+                            </defs>
+                            
+                            <text x="400" y="40" text-anchor="middle" font-weight="bold" font-size="20">美好生活价值创造与体验螺旋</text>
+                            
+                            <!-- 核心上升螺旋 -->
+                            <path d="M 150,370 C 250,350 350,370 450,350 C 550,330 650,350 750,330" 
+                                  fill="none" stroke="url(#pathGradient)" stroke-width="4" />
+                            
+                            <path d="M 150,310 C 250,290 350,310 450,290 C 550,270 650,290 750,270" 
+                                  fill="none" stroke="url(#pathGradient)" stroke-width="4" />
+                            
+                            <path d="M 150,250 C 250,230 350,250 450,230 C 550,210 650,230 750,210" 
+                                  fill="none" stroke="url(#pathGradient)" stroke-width="4" />
+                            
+                            <path d="M 150,190 C 250,170 350,190 450,170 C 550,150 650,170 750,150" 
+                                  fill="none" stroke="url(#pathGradient)" stroke-width="4" />
+                            
+                            <path d="M 150,130 C 250,110 350,130 450,110 C 550,90 650,110 750,90" 
+                                  fill="none" stroke="url(#pathGradient)" stroke-width="4" />
+                            
+                            <!-- 垂直连接线 -->
+                            <line x1="150" y1="370" x2="150" y2="130" stroke="#3182ce" stroke-width="2" stroke-dasharray="5,5" />
+                            <line x1="450" y1="350" x2="450" y2="110" stroke="#6b46c1" stroke-width="2" stroke-dasharray="5,5" />
+                            <line x1="750" y1="330" x2="750" y2="90" stroke="#e53e3e" stroke-width="2" stroke-dasharray="5,5" />
+                            
+                            <!-- 三个关键节点 -->
+                            <!-- 1. 体验美好 -->
+                            <circle cx="150" cy="370" r="50" fill="#ebf8ff" stroke="#3182ce" stroke-width="3" />
+                            <text x="150" y="360" text-anchor="middle" font-weight="bold" font-size="16">体验美好</text>
+                            <text x="150" y="380" text-anchor="middle" font-size="12">感受价值</text>
+                            
+                            <!-- 2. 提升审美 -->
+                            <circle cx="450" cy="350" r="50" fill="#faf5ff" stroke="#6b46c1" stroke-width="3" />
+                            <text x="450" y="340" text-anchor="middle" font-weight="bold" font-size="16">提升审美</text>
+                            <text x="450" y="360" text-anchor="middle" font-size="12">颗粒度变细</text>
+                            
+                            <!-- 3. 创造美好 -->
+                            <circle cx="750" cy="330" r="50" fill="#fff5f5" stroke="#e53e3e" stroke-width="3" />
+                            <text x="750" y="320" text-anchor="middle" font-weight="bold" font-size="16">创造美好</text>
+                            <text x="750" y="340" text-anchor="middle" font-size="12">提供价值</text>
+                            
+                            <!-- 循环连接箭头 -->
+                            <path d="M 200,370 C 280,375 380,360 400,350" fill="none" stroke="#3182ce" stroke-width="2" marker-end="url(#arrowheadPurple)" />
+                            <path d="M 500,350 C 580,345 680,335 700,330" fill="none" stroke="#6b46c1" stroke-width="2" marker-end="url(#arrowheadRed)" />
+                            <path d="M 750,280 C 700,200 500,120 450,160" fill="none" stroke="#e53e3e" stroke-width="2" stroke-dasharray="4,2" />
+                            <path d="M 450,160 C 400,200 200,120 150,320" fill="none" stroke="#6b46c1" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#arrowheadBlue)" />
+                            
+                            <!-- 特征说明框 -->
+                            <g transform="translate(50, 150)">
+                                <rect x="0" y="0" width="170" height="110" rx="5" fill="#e6fffa" stroke="#38b2ac" stroke-width="1" />
+                                <text x="85" y="25" text-anchor="middle" font-weight="bold" font-size="14">体验美好的特征</text>
+                                <line x1="15" y1="35" x2="155" y2="35" stroke="#38b2ac" stroke-width="1" />
+                                <text x="10" y="55" font-size="12" text-anchor="start">• 消费优质产品/服务</text>
+                                <text x="10" y="75" font-size="12" text-anchor="start">• 接触多元文化</text>
+                                <text x="10" y="95" font-size="12" text-anchor="start">• 探索不同体验</text>
+                            </g>
+                            
+                            <g transform="translate(315, 150)">
+                                <rect x="0" y="0" width="170" height="110" rx="5" fill="#e9d8fd" stroke="#805ad5" stroke-width="1" />
+                                <text x="85" y="25" text-anchor="middle" font-weight="bold" font-size="14">审美提升的表现</text>
+                                <line x1="15" y1="35" x2="155" y2="35" stroke="#805ad5" stroke-width="1" />
+                                <text x="10" y="55" font-size="12" text-anchor="start">• 感官敏锐度提高</text>
+                                <text x="10" y="75" font-size="12" text-anchor="start">• 能欣赏更多细节</text>
+                                <text x="10" y="95" font-size="12" text-anchor="start">• 追求精致与品质</text>
+                            </g>
+                            
+                            <g transform="translate(580, 150)">
+                                <rect x="0" y="0" width="170" height="110" rx="5" fill="#fed7d7" stroke="#e53e3e" stroke-width="1" />
+                                <text x="85" y="25" text-anchor="middle" font-weight="bold" font-size="14">创造美好的方式</text>
+                                <line x1="15" y1="35" x2="155" y2="35" stroke="#e53e3e" stroke-width="1" />
+                                <text x="10" y="55" font-size="12" text-anchor="start">• 提供高品质产品</text>
+                                <text x="10" y="75" font-size="12" text-anchor="start">• 注重细节与设计</text>
+                                <text x="10" y="95" font-size="12" text-anchor="start">• 传递美好价值观</text>
+                            </g>
+                            
+                            <!-- 核心观点高亮框 -->
+                            <rect x="50" y="420" width="700" height="30" rx="15" fill="#fffaf0" stroke="#ed8936" stroke-width="2" />
+                            <text x="400" y="440" text-anchor="middle" font-weight="bold" font-size="16" fill="#ed8936">只有享受过美好，才能创造美好 —— 美好生活的价值循环</text>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 第八部分 -->
+            <section id="section-8" class="card p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-2xl font-bold text-gray-900">消费升级与降级的思考</h2>
+                    <div class="tag">未来展望</div>
+                </div>
+                <div class="prose text-gray-700">
+                    <p>现实情况是，在高速增长的黄金时段，"消费升级"是主旋律。在"大变局"背景下，高质量增长取代高速增长，勤俭节约、过紧子，带有享乐性质的"消费"以及其他中枪行业为"高大上""正经"产业让路等大背景下，以低价平替为代表的消费降级到来。求仁得仁。</p>
+                    
+                    <p class="mt-4">美好生活需要、过紧日子、奢侈享乐、降薪裁员等等，这些词到底都有啥关系？我需要好好捋捋。</p>
+                    
+                    <p class="mt-4">还有一点非常重要，以收入支撑去享受美好，对于看到多样性、多元化并培养个性和审美是必要的。商业上百花齐放、海量"小而美"的本质是个性、审美和思想认知具备一定深度和多元化。</p>
+                    
+                    <p class="mt-4">如果大部分人只能消费低价平替，那么市场上必然充斥大量低价平替商品，有理由认为，在个性、审美和思想认知上将同样如此。</p>
+                    
+                    <p class="mt-4">"卡脖子"技术卡不了老百姓美好生活的脖子，反过来，老百姓真正过上越来越美好的生活，就没有人能卡脖子了。</p>
+                </div>
+                
+                <!-- 添加消费升级与降级的思考SVG可视化 -->
+                <div class="mt-6">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <svg class="w-full h-100" viewBox="0 0 600 400">
+                            <text x="300" y="30" text-anchor="middle" font-weight="bold" font-size="16">消费升级与降级的影响因素</text>
+                            
+                            <!-- 中心轴：经济发展状态 -->
+                            <line x1="300" y1="60" x2="300" y2="360" stroke="#718096" stroke-width="3"></line>
+                            
+                            <!-- 时间轴标注 -->
+                            <text x="300" y="380" text-anchor="middle" font-size="14">经济发展时间轴</text>
+                            
+                            <!-- 上升阶段：消费升级 -->
+                            <path d="M 300,320 C 350,300 380,250 400,200 C 420,150 440,120 470,100" fill="none" stroke="#38a169" stroke-width="3"></path>
+                            <polygon points="470,100 460,105 465,95" fill="#38a169"></polygon>
+                            <text x="480" y="90" text-anchor="start" font-weight="bold" font-size="14" fill="#38a169">消费升级</text>
+                            
+                            <!-- 下降阶段：消费降级 -->
+                            <path d="M 300,320 C 250,300 220,250 200,200 C 180,150 160,120 130,100" fill="none" stroke="#e53e3e" stroke-width="3"></path>
+                            <polygon points="130,100 140,105 135,95" fill="#e53e3e"></polygon>
+                            <text x="110" y="90" text-anchor="end" font-weight="bold" font-size="14" fill="#e53e3e">消费降级</text>
+                            
+                            <!-- 右侧：消费升级影响因素 -->
+                            <rect x="430" y="140" width="140" height="180" rx="8" fill="#c6f6d5" stroke="#38a169" stroke-width="2"></rect>
+                            <text x="500" y="165" text-anchor="middle" font-weight="bold" font-size="14">消费升级因素</text>
+                            
+                            <circle cx="450" cy="190" r="4" fill="#38a169"></circle>
+                            <text x="465" y="195" font-size="12" text-anchor="start">收入增长</text>
+                            
+                            <circle cx="450" cy="220" r="4" fill="#38a169"></circle>
+                            <text x="465" y="225" font-size="12" text-anchor="start">多元文化体验</text>
+                            
+                            <circle cx="450" cy="250" r="4" fill="#38a169"></circle>
+                            <text x="465" y="255" font-size="12" text-anchor="start">个性化需求增强</text>
+                            
+                            <circle cx="450" cy="280" r="4" fill="#38a169"></circle>
+                            <text x="465" y="285" font-size="12" text-anchor="start">审美提升</text>
+                            
+                            <circle cx="450" cy="310" r="4" fill="#38a169"></circle>
+                            <text x="465" y="315" font-size="12" text-anchor="start">百花齐放商业环境</text>
+                            
+                            <!-- 左侧：消费降级影响因素 -->
+                            <rect x="30" y="140" width="140" height="180" rx="8" fill="#fed7d7" stroke="#e53e3e" stroke-width="2"></rect>
+                            <text x="100" y="165" text-anchor="middle" font-weight="bold" font-size="14">消费降级因素</text>
+                            
+                            <circle cx="50" cy="190" r="4" fill="#e53e3e"></circle>
+                            <text x="65" y="195" font-size="12" text-anchor="start">收入增长放缓</text>
+                            
+                            <circle cx="50" cy="220" r="4" fill="#e53e3e"></circle>
+                            <text x="65" y="225" font-size="12" text-anchor="start">过紧日子政策</text>
+                            
+                            <circle cx="50" cy="250" r="4" fill="#e53e3e"></circle>
+                            <text x="65" y="255" font-size="12" text-anchor="start">同质化商业环境</text>
+                            
+                            <circle cx="50" cy="280" r="4" fill="#e53e3e"></circle>
+                            <text x="65" y="285" font-size="12" text-anchor="start">内卷式竞争</text>
+                            
+                            <circle cx="50" cy="310" r="4" fill="#e53e3e"></circle>
+                            <text x="65" y="315" font-size="12" text-anchor="start">低价平替文化</text>
+                            
+                            <!-- 中心关键点：社会与个人选择 -->
+                            <circle cx="300" cy="320" r="30" fill="#fefcbf" stroke="#d69e2e" stroke-width="2"></circle>
+                            <text x="300" y="315" text-anchor="middle" font-size="12" font-weight="bold">当前</text>
+                            <text x="300" y="330" text-anchor="middle" font-size="12">社会选择点</text>
+                            
+                            <!-- 上方：理想状态 -->
+                            <circle cx="300" cy="80" r="20" fill="#e9d8fd" stroke="#805ad5" stroke-width="2"></circle>
+                            <text x="300" y="85" text-anchor="middle" font-size="12" font-weight="bold">美好生活</text>
+                            
+                            <!-- 连接线：从当前到理想状态的路径 -->
+                            <path d="M 300,290 C 300,250 300,200 300,100" fill="none" stroke="#805ad5" stroke-width="2" stroke-dasharray="5,5"></path>
+                            <text x="330" y="200" text-anchor="start" font-size="14" fill="#805ad5" font-style="italic">平衡发展路径</text>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer class="bg-gray-100 border-t border-gray-200 mt-10">
+        <div class="container mx-auto px-4 py-6 max-w-4xl">
+            <p class="text-center text-gray-600 text-sm">物价与消费观念总结 | 以上内容，纯属主观，不严谨也不缜密，切勿较真</p>
+        </div>
+    </footer>
+
+    <script>
+        // 折叠/展开逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            // 产品发展图表
+            const productCtx = document.getElementById('productChart').getContext('2d');
+            const productChart = new Chart(productCtx, {
+                type: 'line',
+                data: {
+                    labels: ['1990年', '2000年', '2010年', '2020年', '2025年'],
+                    datasets: [
+                        {
+                            label: '劳动密集型产品',
+                            data: [80, 70, 60, 50, 40],
+                            borderColor: '#3182ce',
+                            backgroundColor: 'rgba(49, 130, 206, 0.1)',
+                            tension: 0.4
+                        },
+                        {
+                            label: '资本密集型产品',
+                            data: [15, 25, 30, 35, 40],
+                            borderColor: '#38a169',
+                            backgroundColor: 'rgba(56, 161, 105, 0.1)',
+                            tension: 0.4
+                        },
+                        {
+                            label: '技术密集型产品',
+                            data: [5, 10, 20, 35, 50],
+                            borderColor: '#e53e3e',
+                            backgroundColor: 'rgba(229, 62, 62, 0.1)',
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: '中国制造业产品结构变化趋势',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        legend: {
+                            position: 'bottom'
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '比例(%)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 商业模式对比图表
+            const businessCtx = document.getElementById('businessChart').getContext('2d');
+            const businessChart = new Chart(businessCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['独特性', '体验', '价格', '标准化', '规模效应'],
+                    datasets: [
+                        {
+                            label: '小而美商业',
+                            data: [85, 75, 40, 30, 25],
+                            backgroundColor: 'rgba(56, 161, 105, 0.6)'
+                        },
+                        {
+                            label: '连锁品牌',
+                            data: [40, 60, 80, 90, 85],
+                            backgroundColor: 'rgba(229, 62, 62, 0.6)'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: '小而美商业 vs 连锁品牌对比',
+                            font: {
+                                size: 16
+                            }
+                        },
+                        legend: {
+                            position: 'bottom'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: '相对优势指数'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
